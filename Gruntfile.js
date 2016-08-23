@@ -1,5 +1,7 @@
 module.exports = function(grunt) {
 
+	var ExtractTextPlugin = require("extract-text-webpack-plugin");
+
 	grunt.initConfig({
 		jshint: {
 			files: ['Gruntfile.js', 'src/**/*.js'],
@@ -23,8 +25,12 @@ module.exports = function(grunt) {
 					loaders: [
 						{ test: /\.html$/, loaders: ['html'] },
 						{ test: /\.json$/, loaders: ['json'] },
+						{ test: /\.scss$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader') }
 					]
 				},
+				plugins: [
+					new ExtractTextPlugin('simple-cycle.css')
+				]
 			}
 		}
 	});

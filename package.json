@@ -16,6 +16,10 @@
     "json-loader": "^0.5.4",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.15.0",
+    "sass-loader": "^3.1.2",
+    "extract-text-webpack-plugin": "^0.8.2",
+    "style-loader": "^0.12.3",
+    "css-loader": "^0.17.0",
     "html-loader": "^0.4.0"
   }
 }
