@@ -22,6 +22,7 @@ module.exports = function(grunt) {
 				module: {
 					loaders: [
 						{ test: /\.html$/, loaders: ['html'] },
+						{ test: /\.json$/, loaders: ['json'] },
 					]
 				},
 			}
