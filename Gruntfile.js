@@ -19,6 +19,11 @@ module.exports = function(grunt) {
 					path: "build/",
 					filename: "simple-cycle.js",
 				},
+				module: {
+					loaders: [
+						{ test: /\.html$/, loaders: ['html'] },
+					]
+				},
 			}
 		}
 	});
