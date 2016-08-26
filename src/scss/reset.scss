@@ -1,0 +1,477 @@
+/*
+ * _reset.scss
+ * ----------------------------------------------------------
+ * Inspired by:
+ *  normalize.css :: https://necolas.github.io/normalize.css/
+ *  HTML5 Doctor :: http://html5doctor.com
+ *  HTML5 Boilerplate :: http://html5boilerplate.com
+ *  Super Form Reset.css :: https://gist.github.com/anthonyshort/552543
+ ***********************************************************************/
+
+/*------------------------------------*\
+	#LAYOUT
+\*------------------------------------*/
+
+	html {
+		font-family: sans-serif;
+		box-sizing: border-box;
+			-ms-text-size-adjust: 100%;
+		-webkit-text-size-adjust: 100%;
+
+		// This allows for dead-simple conversion between px and em
+		// 10px = 1em
+		// 13px = 1.3em
+		// ..and..
+		// 2em = 20px
+		font-size: 62.5%;
+	}
+
+	*,
+	*::before,
+	*::after {
+		box-sizing: inherit;
+	}
+
+	html,
+	body {
+		margin: 0;
+		padding: 0;
+		height: 100%;
+		min-height: 100%;
+	}
+
+	html, body, body div, span, object, iframe, p, blockquote, pre, abbr,
+	address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong,
+	sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+	caption, article, aside, figure, footer, header, menu, nav, section, time,
+	mark, audio, video, details, summary {
+		font-weight: normal;
+		vertical-align: baseline;
+		background: transparent;
+	}
+
+	article, aside, details, figcaption, figure, footer, header, main, menu,
+	nav, section, summary {
+		display: block;
+	}
+
+	hr {
+		display: block;
+		height: 1px;
+		border: 0;
+		border-top: 1px solid;
+		margin: 1rem 0;
+		padding: 0;
+		box-sizing: content-box;
+	}
+
+	[hidden],
+	template {
+		display: none;
+	}
+
+
+
+
+
+/*------------------------------------*\
+	#SEMANTIC
+\*------------------------------------*/
+
+	a {
+		background-color: transparent;
+	}
+
+	a:active,
+	a:hover {
+		outline: 0;
+	}
+
+	abbr[title] {
+		border-bottom: none;
+		text-decoration: underline dotted;
+		cursor: help;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		margin: 0;
+		vertical-align: baseline;
+		background: transparent;
+	}
+
+	b, strong {
+		font-weight: bolder;
+	}
+
+	dfn {
+		font-style: italic;
+	}
+
+	del {
+		text-decoration: line-through;
+	}
+
+	mark {
+		//
+	}
+
+	small {
+		font-size: 80%;
+	}
+
+	sub,
+	sup {
+		font-size: 75%;
+		line-height: 0;
+		position: relative;
+		vertical-align: baseline;
+	}
+
+	sup {
+		top: -0.65rem;
+	}
+
+	sub {
+		bottom: -0.325rem;
+	}
+
+	figure {
+		margin: 0;
+	}
+
+
+
+
+
+/*------------------------------------*\
+	#EMBEDED
+\*------------------------------------*/
+
+	audio,
+	canvas,
+	progress,
+	video {
+		display: inline-block;
+	}
+
+	canvas,
+	progress {
+		vertical-align: baseline;
+	}
+
+	audio:not([controls]) {
+		display: none;
+		height: 0;
+	}
+
+	img,
+	object,
+	embed {
+		max-width: 100%;
+	}
+
+	img {
+		border: 0;
+	}
+
+	svg:not(:root) {
+		overflow: hidden;
+	}
+
+
+
+
+
+/*------------------------------------*\
+	#GROUPING
+\*------------------------------------*/
+	blockquote::before,
+	blockquote::after,
+	q::before,
+	q::after {
+		content: '';
+		content: none;
+	}
+
+	pre {
+		overflow: auto;
+		white-space: pre;
+		white-space: pre-wrap;
+		white-space: pre-line;
+		word-wrap: break-word;
+	}
+
+	code,
+	kbd,
+	pre,
+	samp {
+		font-family: monospace, monospace;
+		font-size: 1.3rem;
+	}
+
+	ul,
+	ol {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+	}
+
+
+
+
+/*------------------------------------*\
+	#TABLES
+\*------------------------------------*/
+
+	table,
+	thead,
+	tbody,
+	tfoot,
+	tr,
+	th,
+	td {
+		width: auto;
+		height: auto;
+		margin: 0;
+		padding: 0;
+		border: none;
+		border-collapse: collapse;
+		border-spacing: 0;
+		border-color: inherit;
+		vertical-align: baseline;
+		text-align: left;
+		font-weight: normal;
+		-webkit-border-horizontal-spacing: 0;
+		-webkit-border-vertical-spacing: 0;
+	}
+
+	th,
+	td {
+		vertical-align: top;
+	}
+
+
+
+
+
+/*------------------------------------*\
+	#FORMS
+\*------------------------------------*/
+
+	input {
+		line-height: normal;
+	}
+
+	input,
+	label,
+	select,
+	button,
+	textarea,
+	input[type=file],
+	input[type=range] {
+		margin: 0;
+		display: inline-block;
+		vertical-align: middle;
+		white-space: normal;
+		font: inherit;
+	}
+
+	label,
+	input[type=file],
+	input[type=range] {
+		border: none;
+		padding: 0;
+	}
+
+	input,
+	select,
+	button,
+	textarea {
+		border: 1px solid lightgray;
+		padding: .325rem;
+		border-radius: 0.325rem;
+	}
+
+	input[type=color] {
+		background: white;
+	}
+
+	input:focus,
+	select:focus {
+		outline: 0;
+	}
+
+	button,
+	select {
+		text-transform: none;
+	}
+
+	input[type="search"] {
+		-webkit-appearance: textfield;
+	}
+
+	input[type="search"]::-webkit-search-cancel-button,
+	input[type="search"]::-webkit-search-decoration {
+		-webkit-appearance: none;
+	}
+
+	:focus::-webkit-input-placeholder {
+		color: transparent;
+	}
+
+	:focus:-moz-placeholder {
+		color: transparent;
+	}
+
+	:focus::-moz-placeholder {
+		color: transparent;
+	}
+
+	:focus:-ms-input-placeholder {
+		color: transparent;
+	}
+
+	input:focus:-moz-placeholder {
+		color: transparent;
+	}
+
+	:invalid {
+		box-shadow: none;
+	}
+
+	:-moz-submit-invalid {
+		box-shadow: none;
+	}
+
+	:-moz-ui-invalid {
+		box-shadow: none;
+	}
+
+	/* Box Sizing Reset
+	-----------------------------------------------*/
+		button,
+		input,
+		textarea,
+		select {
+			box-sizing: border-box;
+		}
+
+	/* Text Inputs
+	-----------------------------------------------*/
+		input[type=date],
+		input[type=datetime],
+		input[type=datetime-local],
+		input[type=email],
+		input[type=month],
+		input[type=number],
+		input[type=password],
+		input[type=range],
+		input[type=search],
+		input[type=tel],
+		input[type=text],
+		input[type=time],
+		input[type=url],
+		input[type=week] {
+		}
+
+	/* Button Controls
+	-----------------------------------------------*/
+		input[type=checkbox],
+		input[type=radio] {
+			padding: 0;
+		}
+
+		input[type="number"]::-webkit-inner-spin-button,
+		input[type="number"]::-webkit-outer-spin-button {
+			height: auto;
+		}
+
+	/* File Uploads
+	-----------------------------------------------*/
+		input[type=file] {
+		}
+
+	/* Search Input
+	-----------------------------------------------*/
+		input[type=search] {
+			-webkit-appearance: none;
+		}
+
+		input[type=search]::-webkit-search-decoration,
+		input[type=search]::-webkit-search-cancel-button,
+		input[type=search]::-webkit-search-results-button,
+		input[type=search]::-webkit-search-results-decoration {
+			display: none;
+		}
+
+		::-webkit-search-decoration {
+			display: none;
+		}
+
+	/* Buttons
+	-----------------------------------------------*/
+		button {
+			overflow: visible;
+		}
+
+		button,
+		input[type="reset"],
+		input[type="button"],
+		input[type="submit"] {
+			cursor: pointer;
+			overflow: visible;
+			width: auto;
+			background: white;
+			-webkit-appearance: button;
+		}
+
+		::-webkit-file-upload-button {
+			padding: 0;
+			border: 0;
+			background: none;
+		}
+
+		button[disabled],
+		input[disabled] {
+			cursor: default;
+		}
+
+		button::-moz-focus-inner,
+		input::-moz-focus-inner {
+			border: 0;
+			padding: 0;
+		}
+
+	/* Textarea
+	-----------------------------------------------*/
+		textarea {
+			vertical-align: top;
+			overflow: auto;
+		}
+
+	/* Selects
+	-----------------------------------------------*/
+		select {
+			background: white;
+		}
+
+		select[multiple] {
+			vertical-align: top;
+		}
+
+		optgroup {
+			font-weight: bolder;
+		}
+
+	/* Fieldset
+	-----------------------------------------------*/
+		fieldset {
+			border: 1px solid;
+			margin: 0;
+			padding: 0.455rem 0.8125rem 0.975rem;
+		}
+
+		legend {
+			border: 0;
+			padding: 0 0.325rem;
+		}

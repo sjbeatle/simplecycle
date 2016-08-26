@@ -1,0 +1,66 @@
+/*
+ * AWF Trumps :: trumps.scss
+ ***********************************************************************/
+
+.pull-right {
+	float: right !important;
+}
+
+.pull-left {
+	float: left !important;
+}
+
+.hide {
+	display: none !important;
+}
+
+.show {
+	display: block !important;
+}
+
+.hidden {
+	display: none !important;
+}
+
+
+.visible-print,
+.visible-print-block,
+.visible-print-inline,
+.visible-print-inline-block {
+	display: none !important;
+}
+
+@media print {
+	.visible-print {
+		display: block !important;
+	}
+
+	table.visible-print {
+		display: table !important;
+	}
+
+	tr.visible-print {
+		display: table-row !important;
+	}
+
+	th.visible-print,
+	td.visible-print {
+		display: table-cell !important;
+	}
+
+	.visible-print-block {
+		display: block !important;
+	}
+
+	.visible-print-inline {
+		display: inline !important;
+	}
+
+	.visible-print-inline-block {
+		display: inline-block !important;
+	}
+
+	.hidden-print {
+		display: none !important;
+	}
+}
