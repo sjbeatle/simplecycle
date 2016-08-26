@@ -12,3 +12,11 @@
 			interpolate: /{{([\s\S]+?)}}/g,
 			escape:      /{{{([\s\S]+?)}}}/g
 		};
+
+
+
+
+
+	/*	SCSS Kickoff!
+	------------------------------------------*/
+		require("../scss/_import.scss");
