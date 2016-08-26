@@ -1,0 +1,34 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<!--
+2016-8-25: Created with FontForge (http://fontforge.org)
+-->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+<metadata>
+Created by FontForge 20150913 at Thu Aug 25 23:42:42 2016
+ By Steve Black
+Copyright (c) 2016, Steve Black
+</metadata>
+<defs>
+<font id="fontcustom" horiz-adv-x="200" >
+  <font-face 
+    font-family="fontcustom"
+    font-weight="400"
+    font-stretch="normal"
+    units-per-em="512"
+    panose-1="2 0 5 3 0 0 0 0 0 0"
+    ascent="448"
+    descent="-64"
+    bbox="-0.00179578 -63.9854 512.004 447.998"
+    underline-thickness="25.6"
+    underline-position="-51.2"
+    unicode-range="U+0020-F108"
+  />
+    <missing-glyph />
+    <glyph glyph-name="space" unicode=" " 
+ />
+    <glyph glyph-name="uniF108" unicode="&#xf108;" horiz-adv-x="512" 
+d="M219.433 -63.9854c-8.26562 0 -16.3115 2.7793 -22.8574 8.00879l-182.857 146.286c-15.7617 12.6172 -18.3223 35.6201 -5.70508 51.4189c12.6172 15.6895 35.6211 18.3223 51.4199 5.70508l149.76 -119.808l234.643 402.249
+c10.2031 17.4082 32.6211 23.2959 50.0293 13.166c17.4082 -10.167 23.333 -32.5488 13.166 -50.0303l-256 -438.856c-5.33984 -9.17969 -14.4463 -15.5801 -24.9053 -17.5176c-2.23145 -0.402344 -4.46191 -0.62207 -6.69238 -0.62207z" />
+  </font>
+</defs></svg>

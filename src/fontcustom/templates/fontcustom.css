@@ -1,0 +1,104 @@
+/*------------------------------------*\
+	#ICONS
+\*------------------------------------*/
+
+<%= font_face(path: @font_path_alt) %>
+
+
+[class^="<%= options[:css_prefix] %>-"], [class*=" <%= options[:css_prefix] %>-"]  {
+	display: inline-block;
+	font-family: "<%= font_name %>";
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+}
+
+
+/* spin */
+.<%= options[:css_prefix] %>-spin {
+	-webkit-animation: <%= options[:css_prefix] %>-spin 2s infinite linear;
+	animation: <%= options[:css_prefix] %>-spin 2s infinite linear;
+}
+
+.<%= options[:css_prefix] %>-spin-slow {
+	-webkit-animation: <%= options[:css_prefix] %>-spin 3s infinite linear;
+	animation: <%= options[:css_prefix] %>-spin 3s infinite linear;
+}
+
+.<%= options[:css_prefix] %>-spin-fast {
+	-webkit-animation: <%= options[:css_prefix] %>-spin 1s infinite linear;
+	animation: <%= options[:css_prefix] %>-spin 1s infinite linear;
+}
+
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes <%= options[:css_prefix] %>-spin {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(359deg);
+		transform: rotate(359deg);
+	}
+}
+
+/* Standard syntax */
+@keyframes <%= options[:css_prefix] %>-spin {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(359deg);
+		transform: rotate(359deg);
+	}
+}
+
+
+/* reverse-spin */
+.<%= options[:css_prefix] %>-reverse-spin {
+	-webkit-animation: <%= options[:css_prefix] %>-reverse-spin 2s infinite linear;
+	animation: <%= options[:css_prefix] %>-reverse-spin 2s infinite linear;
+}
+
+.<%= options[:css_prefix] %>-reverse-spin-slow {
+	-webkit-animation: <%= options[:css_prefix] %>-reverse-spin 3s infinite linear;
+	animation: <%= options[:css_prefix] %>-reverse-spin 3s infinite linear;
+}
+
+.<%= options[:css_prefix] %>-reverse-spin-fast {
+	-webkit-animation: <%= options[:css_prefix] %>-reverse-spin 1s infinite linear;
+	animation: <%= options[:css_prefix] %>-reverse-spin 1s infinite linear;
+}
+
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes <%= options[:css_prefix] %>-reverse-spin {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(-359deg);
+		transform: rotate(-359deg);
+	}
+}
+
+/* Standard syntax */
+@keyframes <%= options[:css_prefix] %>-reverse-spin {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(-359deg);
+		transform: rotate(-359deg);
+	}
+}
+
+
+<%= glyphs %>
