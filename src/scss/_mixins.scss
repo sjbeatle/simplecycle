@@ -1,0 +1,304 @@
+/*
+ * _mixins.scss
+ * ----------------------------------------------------------
+ * Inspired by a plethora of sites and minds
+ ***********************************************************************/
+
+/*------------------------------------*\
+	#STATIC-HELPERS
+\*------------------------------------*/
+
+	@mixin button-reset () {
+		background: none;
+		border: 0;
+		border-radius: 0;
+		color: inherit;
+		cursor: pointer;
+		display: inline-block;
+		line-height: normal;
+		outline: none;
+		overflow: visible;
+		padding: 0;
+		text-decoration: none;
+		-webkit-appearance: button; /* for input */
+		-webkit-user-select: none; /* for button */
+		   -moz-user-select: none;
+		    -ms-user-select: none;
+
+		&::-moz-focus-inner {
+			border: 0;
+			padding: 0;
+		}
+	}
+
+	@mixin input-reset () {
+		margin: 0;
+		border: 0;
+		padding: 0;
+		display: inline-block;
+		vertical-align: middle;
+		white-space: normal;
+		background: none;
+		line-height: normal;
+		box-sizing: inherit;
+
+		&:focus {
+			outline: none;
+		}
+	}
+
+
+
+
+/*------------------------------------*\
+	#DYNAMIC-HELPERS
+\*------------------------------------*/
+
+	/* border-sizing mixin should not really be used. */
+	@mixin box-sizing ($param: border-box) {
+		-webkit-box-sizing: $param;
+		   -moz-box-sizing: $param;
+		    -ms-box-sizing: $param;
+		     -o-box-sizing: $param;
+		        box-sizing: $param;
+	}
+
+	@mixin border-radius ($radius: 50%) {
+		-webkit-border-radius: $radius;
+		   -moz-border-radius: $radius;
+		    -ms-border-radius: $radius;
+		        border-radius: $radius;
+		overflow: hidden;
+	}
+
+	@mixin filter ($param) {
+		-webkit-filter: $param;
+		   -moz-filter: $param;
+		    -ms-filter: $param;
+		     -o-filter: $param;
+		filter: $param;
+	}
+
+	@mixin simple-gradient ($start, $end, $alphaStart:1, $alphaEnd:1) {
+		$ie-start: ie-hex-str(rgba($start, $alphaStart));
+		$ie-end: ie-hex-str(rgba($end, $alphaEnd));
+		background-color: $start;
+		background: -moz-linear-gradient(left, rgba($start, $alphaStart) 0%, rgba($end, $alphaEnd) 100%);
+		background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba($start, $alphaStart)), color-stop(100%, rgba($end, $alphaEnd)));
+		background: -webkit-linear-gradient(left, rgba($start, $alphaStart) 0%, rgba($end, $alphaEnd) 100%);
+		background: -o-linear-gradient(left, rgba($start, $alphaStart) 0%, rgba($end, $alphaEnd) 100%);
+		background: -ms-linear-gradient(left, rgba($start, $alphaStart) 0%, rgba($end, $alphaEnd) 100%);
+		background: linear-gradient(to right, rgba($start, $alphaStart) 0%, rgba($end, $alphaEnd) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$ie-start}', endColorstr='#{$ie-end}', GradientType=1);
+	}
+
+	@mixin radial-gradient ($width, $height, $inner, $outer) {
+		background-image: -webkit-gradient(radial, $width $height, 0, $width $height, 200, from($outer), to($inner));
+		background-image: -webkit-radial-gradient($width $height, $inner, $outer);
+		background-image: -moz-radial-gradient($width $height, $inner, $outer);
+		background-image: -o-radial-gradient($width $height, $inner, $outer);
+		background-image: -ms-radial-gradient($width $height, $inner, $outer);
+		background-image: radial-gradient($width $height, $inner, $outer);
+	}
+
+	@mixin transition ($property, $time:200ms, $ease:ease-in-out) {
+		-webkit-transition: $property $time $ease;
+		   -moz-transition: $property $time $ease;
+		     -o-transition: $property $time $ease;
+		        transition: $property $time $ease;
+	}
+
+	@mixin box-shadow ($param:$box-shadow-base) {
+		-webkit-box-shadow: $param;
+		   -moz-box-shadow: $param;
+		        box-shadow: $param;
+	}
+
+	@mixin transform ($param:"none") {
+		-webkit-transform: $param; /* Safari */
+		    -ms-transform: $param; /* IE 9 */
+		        transform: $param;
+	}
+
+	@mixin transform-origin ($param:"50% 50% 0") {
+		-webkit-transform-origin: $param; /* Chrome, Safari, Opera */
+		    -ms-transform-origin: $param; /* IE 9 */
+		        transform-origin: $param;
+	}
+
+
+
+
+
+/*------------------------------------*\
+    #FLEX-HELPERS
+\*------------------------------------*/
+
+	@mixin flexbox() {
+	  display: -webkit-box;
+	  display: -moz-box;
+	  display: -ms-flexbox;
+	  display: -webkit-flex;
+	  display: flex;
+	}
+
+	@mixin inline-flex() {
+		display: -webkit-inline-box;
+		display: -webkit-inline-flex;
+		display: -moz-inline-flex;
+		display: -ms-inline-flexbox;
+		display: inline-flex;
+	}
+
+	@mixin flex-grow($int: 0) {
+		-webkit-box-flex: $int;
+		-webkit-flex-grow: $int;
+		-moz-flex-grow: $int;
+		-ms-flex-positive: $int;
+		flex-grow: $int;
+	}
+
+	@mixin flex-shrink($int: 1) {
+		-webkit-flex-shrink: $int;
+		-moz-flex-shrink: $int;
+		-ms-flex-negative: $int;
+		flex-shrink: $int;
+	}
+
+	@mixin flex-basis($value: auto) {
+		-webkit-flex-basis: $value;
+		-moz-flex-basis: $value;
+		-ms-flex-preferred-size: $value;
+		flex-basis: $value;
+	}
+
+	@mixin flex($fg: 1, $fs: null, $fb: null) {
+		// Set a variable to be used by box-flex properties
+		$fg-boxflex: $fg;
+
+		// Box-Flex only supports a flex-grow value so let's grab the
+		// first item in the list and just return that.
+		@if type-of($fg) == 'list' {
+			$fg-boxflex: nth($fg, 1);
+		}
+
+		-webkit-box-flex: $fg-boxflex;
+		-webkit-flex: $fg $fs $fb;
+		-moz-box-flex: $fg-boxflex;
+		-moz-flex: $fg $fs $fb;
+		-ms-flex: $fg $fs $fb;
+		flex: $fg $fs $fb;
+	}
+
+	@mixin order($val) {
+	  -webkit-box-ordinal-group: $val;
+	  -moz-box-ordinal-group: $val;
+	  -ms-flex-order: $val;
+	  -webkit-order: $val;
+	  order: $val;
+	}
+
+	@mixin flex-direction($value: row) {
+		@if $value == row-reverse {
+			-webkit-box-direction: reverse;
+			-webkit-box-orient: horizontal;
+		} @else if $value == column {
+			-webkit-box-direction: normal;
+			-webkit-box-orient: vertical;
+		} @else if $value == column-reverse {
+			-webkit-box-direction: reverse;
+			-webkit-box-orient: vertical;
+		} @else {
+			-webkit-box-direction: normal;
+			-webkit-box-orient: horizontal;
+		}
+		-webkit-flex-direction: $value;
+		-moz-flex-direction: $value;
+		-ms-flex-direction: $value;
+		flex-direction: $value;
+	}
+
+	@mixin justify-content($value: flex-start) {
+		@if $value == flex-start {
+			-webkit-box-pack: start;
+			-ms-flex-pack: start;
+		} @else if $value == flex-end {
+			-webkit-box-pack: end;
+			-ms-flex-pack: end;
+		} @else if $value == space-between {
+			-webkit-box-pack: justify;
+			-ms-flex-pack: justify;
+		} @else if $value == space-around {
+			-ms-flex-pack: distribute;
+		} @else {
+			-webkit-box-pack: $value;
+			-ms-flex-pack: $value;
+		}
+		-webkit-justify-content: $value;
+		-moz-justify-content: $value;
+		justify-content: $value;
+	}
+
+	@mixin align-items($value: stretch) {
+		@if $value == flex-start {
+			-webkit-box-align: start;
+			-ms-flex-align: start;
+		} @else if $value == flex-end {
+			-webkit-box-align: end;
+			-ms-flex-align: end;
+		} @else {
+			-webkit-box-align: $value;
+			-ms-flex-align: $value;
+		}
+		-webkit-align-items: $value;
+		-moz-align-items: $value;
+		align-items: $value;
+	}
+
+	@mixin align-self($value: auto) {
+		// No Webkit Box Fallback.
+		-webkit-align-self: $value;
+		-moz-align-self: $value;
+		@if $value == flex-start {
+			-ms-flex-item-align: start;
+		} @else if $value == flex-end {
+			-ms-flex-item-align: end;
+		} @else {
+			-ms-flex-item-align: $value;
+		}
+		align-self: $value;
+	}
+
+	@mixin align-content($value: stretch) {
+		// No Webkit Box Fallback.
+		-webkit-align-content: $value;
+		-moz-align-content: $value;
+		@if $value == flex-start {
+			-ms-flex-line-pack: start;
+		} @else if $value == flex-end {
+			-ms-flex-line-pack: end;
+		} @else {
+			-ms-flex-line-pack: $value;
+		}
+		align-content: $value;
+	}
+
+	@mixin flex-wrap($value: nowrap) {
+		// No Webkit Box fallback.
+		-webkit-flex-wrap: $value;
+		-moz-flex-wrap: $value;
+		@if $value == nowrap {
+			-ms-flex-wrap: none;
+		} @else {
+			-ms-flex-wrap: $value;
+		}
+		flex-wrap: $value;
+	}
+
+	@mixin flex-flow($values: (row nowrap)) {
+		// No Webkit Box fallback.
+		-webkit-flex-flow: $values;
+		-moz-flex-flow: $values;
+		-ms-flex-flow: $values;
+		flex-flow: $values;
+	}
