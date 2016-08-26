@@ -32,17 +32,27 @@ module.exports = function(grunt) {
 					new ExtractTextPlugin('simple-cycle.css')
 				]
 			}
+		},
+		copy: {
+			static: {
+				expand: true,
+				cwd: 'static',
+				src: '**',
+				dest: 'build/'
+			}
 		}
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-webpack');
+	grunt.loadNpmTasks('grunt-contrib-copy');
 
 	grunt.registerTask('default', [
 			'jshint',
 			'clean:build',
-			'webpack:sc'
+			'webpack:sc',
+			'copy:static'
 		]);
 
 };
