@@ -12,7 +12,11 @@ module.exports = function(grunt) {
 			}
 		},
 		clean: {
-		  build: ["build"]
+			build: ["build"],
+			test: [
+				"test",
+				"_SpecRunner.html"
+			]
 		},
 		webpack: {
 			sc: {
@@ -39,6 +43,50 @@ module.exports = function(grunt) {
 				cwd: 'static',
 				src: '**',
 				dest: 'build/'
+			},
+			tests: {
+				files: [
+					{
+						expand: true,
+						cwd: 'src',
+						src: ['**/__tests__/**/*.js'],
+						dest: 'test/unit/specs',
+						rename: function(dest, src) {
+							/**
+							 * Example:
+							 * `component/__tests__/exampleSpec.js` from src/ becomes...
+							 * `component/exampleSpec.js` in test/
+							 */
+							var path = require('path');
+							var filenameArr = src.split(path.sep);
+							var indexOfTests = filenameArr.indexOf('__tests__');
+							filenameArr.splice(indexOfTests, 1);
+							return dest + path.sep + filenameArr.join(path.sep);
+						}
+					}
+				]
+			}
+		},
+		jasmine: {
+			default: {
+				src: [
+					'build/simple-cycle.js'
+				],
+				options: {
+					display: 'full',
+					specs: [
+						'test/unit/specs/**'
+					],
+					junit: {
+						path: 'test/unit/reports/junit',
+						consolidate: true
+					},
+					templateOptions: {
+						coverage: 'test/unit/reports/coverage/coverage.json',
+						report: { type: 'lcov', options: { dir: 'test/unit/reports/coverage' } },
+					},
+					keepRunner: true
+				}
 			}
 		}
 	});
@@ -47,12 +95,20 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-webpack');
 	grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.loadNpmTasks('grunt-contrib-jasmine');
 
 	grunt.registerTask('default', [
 			'jshint',
 			'clean:build',
 			'webpack:sc',
 			'copy:static'
+		]);
+
+	grunt.registerTask('test', [
+			 'clean:test',
+			 'copy:tests',
+			 'jasmine',
+			 'clean:test'
 		]);
 
 };
